@@ -1,5 +1,7 @@
 import Center from '../src/components/Center/Center'
 import { addDecorator } from '@storybook/react'
+import { ThemeProvider, CssBaseline, createMuiTheme } from '@material-ui/core'
+import { deepOrange, green, teal } from '@material-ui/core/colors'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -18,3 +20,19 @@ export const parameters = {
 }
 
 addDecorator((story) => <Center>{story()}</Center>)
+
+const theme = createMuiTheme({
+  palette: {
+    primary: teal,
+    secondary: deepOrange,
+  },
+})
+
+export const decorators = [
+  (story) => (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      {story()}
+    </ThemeProvider>
+  ),
+]

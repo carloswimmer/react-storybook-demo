@@ -1,7 +1,9 @@
 import Center from '../src/components/Center/Center'
 import { addDecorator } from '@storybook/react'
 import { ThemeProvider, CssBaseline, createMuiTheme } from '@material-ui/core'
-import { deepOrange, green, teal } from '@material-ui/core/colors'
+import { deepOrange, teal } from '@material-ui/core/colors'
+// import { withConsole } from '@storybook/addon-console'
+// import { withA11y } from '@storybook/addon-a11y'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -20,6 +22,8 @@ export const parameters = {
 }
 
 addDecorator((story) => <Center>{story()}</Center>)
+// addDecorator((storyFn, context) => withConsole()(storyFn)(context))
+// addDecorator(withA11y)
 
 const theme = createMuiTheme({
   palette: {
